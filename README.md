@@ -140,9 +140,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- GitHub: [@Papiwrld](https://github.com/Papiwrld)
+- LinkedIn: [My LinkedIn](https://www.linkedin.com/in/eugene-awagah-86068a341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
 
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
