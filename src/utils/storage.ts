@@ -1,0 +1,63 @@
+import { Todo } from '../types/Todo';
+import { STORAGE_KEYS, ERROR_MESSAGES } from '../constants';
+
+/**
+ * Safely parse JSON from localStorage
+ */
+export const safeJsonParse = <T>(json: string, fallback: T): T => {
+  try {
+    return JSON.parse(json);
+  } catch {
+    console.warn('Failed to parse JSON from localStorage');
+    return fallback;
+  }
+};
+
+/**
+ * Load todos from localStorage with error handling
+ */
+export const loadTodosFromStorage = (): Todo[] => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEYS.TODOS);
+    if (!saved) return [];
+    
+    const parsed = safeJsonParse(saved, []);
+    if (!Array.isArray(parsed)) return [];
+    
+    return parsed.map((todo: any) => ({
+      id: todo.id || crypto.randomUUID(),
+      text: todo.text || '',
+      completed: Boolean(todo.completed),
+      createdAt: todo.createdAt ? new Date(todo.createdAt) : new Date()
+    }));
+  } catch (error) {
+    console.warn('Failed to load todos from localStorage:', error);
+    return [];
+  }
+};
+
+/**
+ * Save todos to localStorage with error handling
+ */
+export const saveTodosToStorage = (todos: Todo[]): boolean => {
+  try {
+    localStorage.setItem(STORAGE_KEYS.TODOS, JSON.stringify(todos));
+    return true;
+  } catch (error) {
+    console.error('Failed to save todos to localStorage:', error);
+    return false;
+  }
+};
+
+/**
+ * Clear all todos from localStorage
+ */
+export const clearTodosFromStorage = (): boolean => {
+  try {
+    localStorage.removeItem(STORAGE_KEYS.TODOS);
+    return true;
+  } catch (error) {
+    console.error('Failed to clear todos from localStorage:', error);
+    return false;
+  }
+};
