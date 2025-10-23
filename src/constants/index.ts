@@ -13,20 +13,6 @@ export const STORAGE_KEYS = {
   SETTINGS: 'todo-settings',
 } as const;
 
-// Keyboard shortcuts
-export const KEYBOARD_SHORTCUTS = {
-  FOCUS_INPUT: 'ctrl+enter',
-  TOGGLE_TODO: 'enter',
-  DELETE_TODO: 'delete',
-} as const;
-
-// CSS class names
-export const CSS_CLASSES = {
-  TODO_ITEM: 'todo-item',
-  TODO_COMPLETED: 'completed',
-  ERROR_STATE: 'error',
-  LOADING_STATE: 'loading',
-} as const;
 
 // Error messages
 export const ERROR_MESSAGES = {
@@ -36,10 +22,3 @@ export const ERROR_MESSAGES = {
   LOAD_FAILED: 'Failed to load todos from storage.',
 } as const;
 
-// Success messages
-export const SUCCESS_MESSAGES = {
-  TODO_ADDED: 'Todo added successfully',
-  TODO_COMPLETED: 'Todo marked as complete',
-  TODO_DELETED: 'Todo deleted',
-  COMPLETED_CLEARED: 'Completed todos cleared',
-} as const;

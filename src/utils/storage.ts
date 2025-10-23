@@ -49,15 +49,3 @@ export const saveTodosToStorage = (todos: Todo[]): boolean => {
   }
 };
 
-/**
- * Clear all todos from localStorage
- */
-export const clearTodosFromStorage = (): boolean => {
-  try {
-    localStorage.removeItem(STORAGE_KEYS.TODOS);
-    return true;
-  } catch (error) {
-    console.error('Failed to clear todos from localStorage:', error);
-    return false;
-  }
-};
