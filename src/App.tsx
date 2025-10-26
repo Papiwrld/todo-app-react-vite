@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { AddTodo, TodoList, Stats } from './components';
 import { useTodos } from './hooks/useTodos';
 import { APP_CONFIG } from './constants';

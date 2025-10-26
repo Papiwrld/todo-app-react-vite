@@ -1,5 +1,5 @@
 import { Todo } from '../types/Todo';
-import { STORAGE_KEYS, ERROR_MESSAGES } from '../constants';
+import { STORAGE_KEYS } from '../constants';
 
 /**
  * Safely parse JSON from localStorage
