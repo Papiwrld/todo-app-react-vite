@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { StatsProps } from '../types/components';
 
-const Stats: React.FC<StatsProps> = ({ total, completed, remaining, onClearCompleted }) => {
-  if (total === 0) return null;
+const Stats: React.FC<StatsProps> = memo(({ total, completed, remaining, onClearCompleted }) => {
 
   return (
     <div className="stats">
@@ -28,6 +27,8 @@ const Stats: React.FC<StatsProps> = ({ total, completed, remaining, onClearCompl
       )}
     </div>
   );
-};
+});
+
+Stats.displayName = 'Stats';
 
 export default Stats;

@@ -5,7 +5,7 @@ import { APP_CONFIG } from './constants';
 import './App.css';
 
 function App() {
-  const { todos, addTodo, toggleTodo, deleteTodo, clearCompleted, stats, error } = useTodos();
+  const { todos, addTodo, toggleTodo, deleteTodo, clearCompleted, stats, error, isLoading } = useTodos();
 
   // Set page title dynamically
   useEffect(() => {
@@ -30,14 +30,16 @@ function App() {
             </div>
           )}
           
-          <AddTodo onAdd={addTodo} />
+          <AddTodo onAdd={addTodo} isLoading={isLoading} />
           
-          <Stats 
-            total={stats.total}
-            completed={stats.completed}
-            remaining={stats.remaining}
-            onClearCompleted={clearCompleted}
-          />
+          {stats.total > 0 && (
+            <Stats 
+              total={stats.total}
+              completed={stats.completed}
+              remaining={stats.remaining}
+              onClearCompleted={clearCompleted}
+            />
+          )}
 
           <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
         </main>

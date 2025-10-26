@@ -1,68 +1,189 @@
+/* Advanced Responsive Design System - Desktop & Mobile Optimized */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  /* Color System - Enhanced for both platforms */
+  --ios-blue: #007AFF;
+  --ios-green: #34C759;
+  --ios-orange: #FF9500;
+  --ios-red: #FF3B30;
+  --ios-purple: #AF52DE;
+  --ios-pink: #FF2D92;
+  --ios-teal: #5AC8FA;
+  --ios-indigo: #5856D6;
+  
+  /* Samsung Notes Color System */
+  --samsung-blue: #0066CC;
+  --samsung-green: #00C851;
+  --samsung-orange: #FF8800;
+  --samsung-red: #FF4444;
+  --samsung-purple: #9C27B0;
+  
+  /* Neutral Colors - iOS Style */
+  --ios-gray-1: #F2F2F7;
+  --ios-gray-2: #E5E5EA;
+  --ios-gray-3: #D1D1D6;
+  --ios-gray-4: #C7C7CC;
+  --ios-gray-5: #AEAEB2;
+  --ios-gray-6: #8E8E93;
+  --ios-gray-7: #636366;
+  --ios-gray-8: #48484A;
+  --ios-gray-9: #3A3A3C;
+  --ios-gray-10: #2C2C2E;
+  --ios-gray-11: #1C1C1E;
+  
+  /* Typography - Platform Optimized */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.47059;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  
+  /* Design Tokens - Responsive */
+  --text-primary: #000000;
+  --text-secondary: #3C3C43;
+  --text-tertiary: #3C3C4399;
+  --text-quaternary: #3C3C4366;
+  --text-placeholder: #3C3C434D;
+  
+  --background-primary: #FFFFFF;
+  --background-secondary: #F2F2F7;
+  --background-tertiary: #FFFFFF;
+  --background-grouped: #F2F2F7;
+  --background-elevated: #FFFFFF;
+  
+  --separator: #3C3C434A;
+  --separator-opaque: #C6C6C8;
+  
+  --fill-primary: #78788033;
+  --fill-secondary: #78788028;
+  --fill-tertiary: #7878801F;
+  --fill-quaternary: #78788014;
+  
+  /* Enhanced Shadow System - Desktop & Mobile */
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  --shadow-4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  --shadow-5: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  
+  /* Desktop-specific shadows */
+  --shadow-desktop-1: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-desktop-2: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-desktop-3: 0 8px 32px rgba(0, 0, 0, 0.16);
+  
+  /* Border Radius - Responsive Scale */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+  --radius-full: 50%;
+  
+  /* Transitions - Platform Optimized */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* Desktop-specific transitions */
+  --transition-desktop: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-mobile: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Spacing - Responsive Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  
+  /* Desktop-specific spacing */
+  --space-desktop-1: 6px;
+  --space-desktop-2: 12px;
+  --space-desktop-3: 18px;
+  --space-desktop-4: 24px;
+  --space-desktop-5: 30px;
+  --space-desktop-6: 36px;
+  --space-desktop-8: 48px;
+  --space-desktop-10: 60px;
+  --space-desktop-12: 72px;
+  --space-desktop-16: 96px;
+  --space-desktop-20: 120px;
+  --space-desktop-24: 144px;
+  
+  /* Touch targets - Mobile optimized */
+  --touch-target-min: 44px;
+  --touch-target-comfortable: 48px;
+  --touch-target-large: 56px;
+  
+  /* Desktop hover states */
+  --hover-scale: 1.02;
+  --hover-scale-small: 1.01;
+  --hover-scale-large: 1.05;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #FFFFFF;
+    --text-secondary: #EBEBF5;
+    --text-tertiary: #EBEBF599;
+    --text-quaternary: #EBEBF566;
+    --text-placeholder: #EBEBF54D;
+    
+    --background-primary: #000000;
+    --background-secondary: #1C1C1E;
+    --background-tertiary: #2C2C2E;
+    --background-grouped: #000000;
+    --background-elevated: #1C1C1E;
+    
+    --separator: #38383A;
+    --separator-opaque: #38383A;
+    
+    --fill-primary: #78788033;
+    --fill-secondary: #78788028;
+    --fill-tertiary: #7878801F;
+    --fill-quaternary: #78788014;
+  }
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: var(--text-primary);
+  background: var(--background-grouped);
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* iOS Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--ios-blue);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* iOS-style selection */
+::selection {
+  background: var(--ios-blue);
+  color: white;
 }

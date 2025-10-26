@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { TodoListProps } from '../types/components';
 import TodoItem from './TodoItem';
 
-const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete }) => {
+const TodoList: React.FC<TodoListProps> = memo(({ todos, onToggle, onDelete }) => {
   if (todos.length === 0) {
     return (
       <div className="empty-state">
@@ -25,6 +25,8 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onToggle, onDelete }) => {
       ))}
     </div>
   );
-};
+});
+
+TodoList.displayName = 'TodoList';
 
 export default TodoList;
