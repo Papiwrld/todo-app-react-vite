@@ -67,11 +67,20 @@ const AddTodo: React.FC<AddTodoProps> = ({ onAdd, isLoading = false }) => {
       input.setAttribute('autocorrect', 'off');
       input.setAttribute('autocapitalize', 'off');
       input.setAttribute('spellcheck', 'false');
+      input.setAttribute('inputmode', 'text');
     }
 
     input.addEventListener('focus', preventZoom);
     return () => input.removeEventListener('focus', preventZoom);
   }, []);
+
+  // Handle mobile keyboard events
+  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  }, [handleSubmit]);
 
   return (
     <form onSubmit={handleSubmit} className="add-todo-form">
@@ -81,6 +90,7 @@ const AddTodo: React.FC<AddTodoProps> = ({ onAdd, isLoading = false }) => {
           type="text"
           value={text}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
           placeholder="Add a new todo..."
           className={`add-todo-input ${error ? 'error' : ''}`}
           maxLength={100}

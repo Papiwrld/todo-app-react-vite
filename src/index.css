@@ -213,6 +213,15 @@ body {
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Mobile optimizations */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
 }
 
 /* iOS Focus styles */
@@ -231,4 +240,58 @@ html {
 ::selection {
   background: var(--ios-blue);
   color: white;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Improve scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Optimize text rendering */
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Prevent zoom on input focus */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+  
+  /* Improve touch targets */
+  button,
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better focus management */
+  *:focus {
+    outline: 3px solid var(--ios-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Optimize animations for mobile */
+  .advanced-todo-item,
+  .add-todo-btn,
+  .edit-btn,
+  .delete-btn {
+    will-change: transform;
+  }
+  
+  /* Reduce motion for better performance */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }

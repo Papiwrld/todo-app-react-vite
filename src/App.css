@@ -1414,12 +1414,321 @@
   }
 }
 
-/* Responsive Design for Advanced Features */
-@media (max-width: 768px) {
+/* ===== MOBILE-FIRST RESPONSIVE DESIGN ===== */
+
+/* Extra small devices (phones, 320px and up) */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-3);
+    margin: var(--space-1);
+    border-radius: var(--radius-xl);
+    min-height: calc(100vh - var(--space-2));
+  }
+  
+  .app-header {
+    padding: var(--space-4) 0;
+    text-align: center;
+  }
+  
+  .app-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
+  }
+  
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: var(--space-4);
+  }
+  
   .theme-toggle {
     position: static;
-    margin-bottom: var(--space-4);
+    margin: var(--space-3) auto 0;
     justify-content: center;
+    width: fit-content;
+  }
+  
+  .theme-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+  
+  .add-todo-form {
+    margin-bottom: var(--space-4);
+  }
+  
+  .input-group {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .add-todo-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    min-height: 48px;
+  }
+  
+  .add-todo-btn {
+    padding: var(--space-4);
+    font-size: 1rem;
+    min-height: 48px;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+  }
+  
+  .search-and-filter {
+    margin-bottom: var(--space-4);
+  }
+  
+  .search-container {
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+  
+  .search-input {
+    font-size: 16px;
+    padding: var(--space-4);
+    min-height: 48px;
+  }
+  
+  .filter-toggle {
+    padding: var(--space-4);
+    min-height: 48px;
+    font-size: 1rem;
+    justify-content: center;
+  }
+  
+  .filter-panel {
+    padding: var(--space-3);
+  }
+  
+  .filter-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .filter-select {
+    padding: var(--space-4);
+    font-size: 16px;
+    min-height: 48px;
+  }
+  
+  .clear-filters-btn {
+    width: 100%;
+    padding: var(--space-4);
+    min-height: 48px;
+    font-size: 1rem;
+  }
+  
+  .stats {
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  
+  .stat {
+    font-size: 0.9rem;
+    padding: var(--space-2);
+  }
+  
+  .clear-completed-btn {
+    width: 100%;
+    padding: var(--space-4);
+    font-size: 1rem;
+    min-height: 48px;
+    margin-top: var(--space-3);
+  }
+  
+  .advanced-todo-item {
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+    border-radius: var(--radius-lg);
+  }
+  
+  .todo-main-content {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .todo-checkbox-container {
+    align-self: flex-start;
+  }
+  
+  .todo-checkbox {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .todo-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .todo-notes {
+    font-size: 0.9rem;
+    margin-top: var(--space-1);
+  }
+  
+  .todo-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+  }
+  
+  .todo-priority {
+    align-self: flex-start;
+  }
+  
+  .priority-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .todo-category {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.8rem;
+    border-radius: var(--radius-md);
+  }
+  
+  .todo-due-date {
+    font-size: 0.8rem;
+    padding: var(--space-1) var(--space-2);
+    background: var(--fill-secondary);
+    border-radius: var(--radius-sm);
+  }
+  
+  .todo-tags {
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+  
+  .todo-tag {
+    font-size: 0.75rem;
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  .todo-actions {
+    margin-left: 0;
+    margin-top: var(--space-3);
+    justify-content: center;
+    gap: var(--space-3);
+  }
+  
+  .action-buttons {
+    gap: var(--space-3);
+  }
+  
+  .edit-btn, .delete-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .edit-actions {
+    gap: var(--space-3);
+  }
+  
+  .save-btn, .cancel-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .delete-confirm {
+    gap: var(--space-3);
+  }
+  
+  .confirm-delete-btn, .cancel-delete-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .empty-state {
+    padding: var(--space-8) var(--space-4);
+    text-align: center;
+  }
+  
+  .empty-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+  
+  .empty-state h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2);
+  }
+  
+  .empty-state p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .keyboard-hint {
+    display: none; /* Hide on very small screens */
+  }
+  
+  .error-banner {
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
+    font-size: 0.9rem;
+  }
+  
+  .error-message {
+    font-size: 0.85rem;
+    padding: var(--space-2);
+  }
+}
+
+/* Small devices (phones, 481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: var(--space-4);
+    margin: var(--space-2);
+    border-radius: var(--radius-2xl);
+  }
+  
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .theme-toggle {
+    position: static;
+    margin: var(--space-3) auto 0;
+    justify-content: center;
+  }
+  
+  .add-todo-form {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .input-group {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .add-todo-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: var(--space-4);
+  }
+  
+  .add-todo-btn {
+    padding: var(--space-4) var(--space-6);
+    font-size: 1rem;
   }
   
   .search-container {
@@ -1428,13 +1737,13 @@
   }
   
   .filter-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-3);
   }
   
   .advanced-todo-item {
-    flex-direction: column;
-    gap: var(--space-3);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
   }
   
   .todo-main-content {
@@ -1444,12 +1753,262 @@
   
   .todo-actions {
     margin-left: 0;
+    margin-top: var(--space-3);
     justify-content: center;
   }
   
   .todo-meta {
     flex-direction: column;
     align-items: flex-start;
+    gap: var(--space-2);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  
+  .clear-completed-btn {
+    width: 100%;
+    padding: var(--space-4);
+    font-size: 1rem;
+  }
+  
+  .empty-state {
+    padding: var(--space-8) var(--space-4);
+  }
+  
+  .empty-icon {
+    font-size: 3rem;
+  }
+  
+  .empty-state h3 {
+    font-size: 1.25rem;
+  }
+  
+  .keyboard-hint {
+    font-size: 0.8rem;
+    padding: var(--space-2);
+  }
+  
+  .keyboard-hint kbd {
+    font-size: 0.7rem;
+    padding: 2px 4px;
+  }
+}
+
+/* Medium devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 800px;
+    padding: var(--space-6);
+  }
+  
+  .search-container {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+  
+  .filter-row {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+  
+  .advanced-todo-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .todo-main-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .todo-actions {
+    margin-left: var(--space-4);
+    margin-top: 0;
+  }
+  
+  .todo-meta {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* ===== MOBILE-SPECIFIC OPTIMIZATIONS ===== */
+
+/* Enhanced touch targets for mobile */
+@media (max-width: 768px) {
+  /* Ensure all interactive elements meet minimum touch target size */
+  button, 
+  input[type="checkbox"], 
+  input[type="text"], 
+  select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve touch feedback */
+  .todo-checkbox {
+    transform: scale(1.2);
+    margin: var(--space-2);
+  }
+  
+  /* Better spacing for touch */
+  .advanced-todo-item {
+    padding: var(--space-5);
+    margin-bottom: var(--space-4);
+  }
+  
+  /* Enhanced button states for mobile */
+  .add-todo-btn:active,
+  .edit-btn:active,
+  .delete-btn:active,
+  .save-btn:active,
+  .cancel-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Improved focus states for mobile */
+  .add-todo-input:focus,
+  .search-input:focus,
+  .filter-select:focus {
+    outline: 3px solid var(--ios-blue);
+    outline-offset: 2px;
+  }
+  
+  /* Better visual hierarchy on small screens */
+  .app-header h1 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  
+  .todo-text {
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  
+  /* Optimize animations for mobile performance */
+  .advanced-todo-item {
+    will-change: transform, opacity;
+  }
+  
+  .advanced-todo-item.deleting {
+    will-change: transform;
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .advanced-todo-item,
+    .add-todo-btn,
+    .edit-btn,
+    .delete-btn {
+      transition: none;
+    }
+    
+    .advanced-todo-item.deleting {
+      animation: none;
+      opacity: 0;
+    }
+  }
+  
+  /* Mobile-specific loading states */
+  .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--fill-secondary);
+    border-top: 2px solid var(--ios-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Mobile error states */
+  .error-banner {
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-4);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .error-message {
+    font-size: 0.85rem;
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+  }
+  
+  /* Mobile keyboard hints */
+  .keyboard-hint {
+    display: none; /* Hidden on mobile for cleaner UI */
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .container {
+    padding: var(--space-3);
+    margin: var(--space-1);
+  }
+  
+  .app-header {
+    padding: var(--space-3) 0;
+  }
+  
+  .app-header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .theme-toggle {
+    margin: var(--space-2) auto 0;
+  }
+  
+  .theme-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .advanced-todo-item {
+    padding: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+  
+  .todo-main-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .todo-actions {
+    margin-left: var(--space-3);
+    margin-top: 0;
+  }
+  
+  .todo-meta {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* High DPI mobile displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .advanced-todo-item {
+    border-width: 0.5px;
+  }
+  
+  .search-and-filter {
+    border-width: 0.5px;
   }
 }
 

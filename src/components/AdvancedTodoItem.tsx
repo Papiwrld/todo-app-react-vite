@@ -71,6 +71,19 @@ const AdvancedTodoItem: React.FC<AdvancedTodoItemProps> = memo(({
     }
   }, [isEditing, handleSaveEdit, handleCancelEdit, handleToggle, handleDelete]);
 
+  // Mobile touch optimizations
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    // Add visual feedback for touch
+    const target = e.currentTarget as HTMLElement;
+    target.style.transform = 'scale(0.98)';
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    // Remove visual feedback
+    const target = e.currentTarget as HTMLElement;
+    target.style.transform = '';
+  }, []);
+
   const handlePriorityChange = useCallback((priority: 'low' | 'medium' | 'high') => {
     onUpdate(todo.id, { priority });
   }, [onUpdate, todo.id]);
@@ -110,6 +123,8 @@ const AdvancedTodoItem: React.FC<AdvancedTodoItemProps> = memo(({
       className={`advanced-todo-item ${todo.completed ? 'completed' : ''} ${isDeleting ? 'deleting' : ''} ${isOverdue ? 'overdue' : ''}`}
       tabIndex={0}
       onKeyDown={handleKeyDown}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       role="listitem"
     >
       <div className="todo-main-content">
