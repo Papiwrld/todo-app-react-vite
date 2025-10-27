@@ -27,7 +27,13 @@ export const useTodos = (): UseTodosReturn => {
     }
     
     setIsLoading(true);
-    const newTodo = createTodo(text);
+    const newTodo: Todo = {
+      ...createTodo(text),
+      priority: 'medium',
+      category: 'personal',
+      tags: [],
+      notes: ''
+    };
     setTodos(prev => [newTodo, ...prev]);
     setError(null);
     setIsLoading(false);
@@ -49,6 +55,14 @@ export const useTodos = (): UseTodosReturn => {
     setTodos(prev => prev.filter(todo => !todo.completed));
   }, []);
 
+  const updateTodo = useCallback((id: string, updates: Partial<Todo>) => {
+    setTodos(prev =>
+      prev.map(todo =>
+        todo.id === id ? { ...todo, ...updates } : todo
+      )
+    );
+  }, []);
+
   // Memoize stats calculation
   const stats: TodoStats = useMemo(() => ({
     total: todos.length,
@@ -62,6 +76,7 @@ export const useTodos = (): UseTodosReturn => {
     toggleTodo,
     deleteTodo,
     clearCompleted,
+    updateTodo,
     stats,
     error,
     isLoading,

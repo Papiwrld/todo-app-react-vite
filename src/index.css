@@ -134,9 +134,54 @@
   --hover-scale-large: 1.05;
 }
 
-/* Dark mode support */
+/* Advanced Theme System */
+[data-theme="light"] {
+  --text-primary: #000000;
+  --text-secondary: #3C3C43;
+  --text-tertiary: #3C3C4399;
+  --text-quaternary: #3C3C4366;
+  --text-placeholder: #3C3C434D;
+  
+  --background-primary: #FFFFFF;
+  --background-secondary: #F2F2F7;
+  --background-tertiary: #FFFFFF;
+  --background-grouped: #F2F2F7;
+  --background-elevated: #FFFFFF;
+  
+  --separator: #3C3C434A;
+  --separator-opaque: #C6C6C8;
+  
+  --fill-primary: #78788033;
+  --fill-secondary: #78788028;
+  --fill-tertiary: #7878801F;
+  --fill-quaternary: #78788014;
+}
+
+[data-theme="dark"] {
+  --text-primary: #FFFFFF;
+  --text-secondary: #EBEBF5;
+  --text-tertiary: #EBEBF599;
+  --text-quaternary: #EBEBF566;
+  --text-placeholder: #EBEBF54D;
+  
+  --background-primary: #000000;
+  --background-secondary: #1C1C1E;
+  --background-tertiary: #2C2C2E;
+  --background-grouped: #000000;
+  --background-elevated: #1C1C1E;
+  
+  --separator: #38383A;
+  --separator-opaque: #38383A;
+  
+  --fill-primary: #78788033;
+  --fill-secondary: #78788028;
+  --fill-tertiary: #7878801F;
+  --fill-quaternary: #78788014;
+}
+
+/* Auto theme based on system preference */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --text-primary: #FFFFFF;
     --text-secondary: #EBEBF5;
     --text-tertiary: #EBEBF599;

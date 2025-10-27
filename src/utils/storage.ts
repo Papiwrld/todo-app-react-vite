@@ -28,7 +28,12 @@ export const loadTodosFromStorage = (): Todo[] => {
       id: todo.id || crypto.randomUUID(),
       text: todo.text || '',
       completed: Boolean(todo.completed),
-      createdAt: todo.createdAt ? new Date(todo.createdAt) : new Date()
+      createdAt: todo.createdAt ? new Date(todo.createdAt) : new Date(),
+      priority: todo.priority || 'medium',
+      category: todo.category || 'personal',
+      tags: todo.tags || [],
+      notes: todo.notes || '',
+      dueDate: todo.dueDate ? new Date(todo.dueDate) : undefined
     }));
   } catch (error) {
     console.warn('Failed to load todos from localStorage:', error);
